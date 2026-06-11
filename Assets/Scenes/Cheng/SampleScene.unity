@@ -200,7 +200,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -627341691909175014, guid: 249b923dbdf7a6f48b742c24746217cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 520551782}
   - component: {fileID: 520551784}
   - component: {fileID: 520551783}
+  - component: {fileID: 520551785}
   m_Layer: 0
   m_Name: box-zoominclose_0
   m_TagString: Untagged
@@ -1035,6 +1036,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &520551785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520551781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b9507f8e17f14468115468ea92ff13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionObject
 --- !u!1 &597142066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fef289d5f0d9f040a297a015f42c52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoomTrigger
-  currentView: {fileID: 0}
+  currentView: {fileID: 1019142777}
   zoomView: {fileID: 1163852210}
 --- !u!1 &1196638217
 GameObject:
@@ -3209,6 +3222,7 @@ GameObject:
   - component: {fileID: 1730501542}
   - component: {fileID: 1730501541}
   - component: {fileID: 1730501543}
+  - component: {fileID: 1730501544}
   m_Layer: 0
   m_Name: box_0
   m_TagString: Untagged
@@ -3350,6 +3364,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZoomTrigger
   currentView: {fileID: 1019142777}
   zoomView: {fileID: 1163852210}
+--- !u!114 &1730501544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730501539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1087440a2d8c90348b21eaecdd5f982c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrawerInteraction
+  roomView: {fileID: 1019142777}
+  puzzleView: {fileID: 1163852210}
+  openView: {fileID: 1222220946}
+  backButton: {fileID: 2063472331}
 --- !u!1 &1821455210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,7 +3799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0146336166bf44fa42f086b0d90d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackButton
-  roomView: {fileID: 0}
+  roomView: {fileID: 1019142777}
   drawerPuzzleView: {fileID: 1163852210}
   drawerOpenView: {fileID: 1222220946}
 --- !u!1 &2121782036

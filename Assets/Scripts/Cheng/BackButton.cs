@@ -10,7 +10,7 @@ public class BackButton : MonoBehaviour
     public GameObject drawerPuzzleView;
 
     public GameObject drawerOpenView;
-
+    
     void Awake()
     {
         this.gameObject.SetActive(false);  //開啟遊戲不會有返回鍵
@@ -27,7 +27,7 @@ public class BackButton : MonoBehaviour
 
         if (drawerOpenView != null)
         {
-            drawerOpenView.SetActive(false); //如果玩家沒拿key直接按返回劍會有bug
+            drawerOpenView.SetActive(false); 
         }
 
         // 回到房間
