@@ -1647,7 +1647,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1085345306}
         m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
-        m_MethodName: GoLeft
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviour
 {
     public GameObject[] rooms;
@@ -35,5 +35,10 @@ public class RoomManager : MonoBehaviour
             currentRoom--;
             ShowRoom(currentRoom);
         }
+    }
+    public void BackToMainMenu()
+    {
+        Debug.Log("Home");
+        SceneManager.LoadScene("MainMenu");
     }
 }

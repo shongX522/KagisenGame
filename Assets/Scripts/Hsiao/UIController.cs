@@ -32,8 +32,9 @@ public class UIController : MonoBehaviour
         //check the buttons are all selected, if not return the error msg to screen.
         if(ButtonLeft != null) ButtonLeft.onClick.AddListener(CamCtrl.Left); else Debug.LogError("not found Left Button!");
         if(ButtonRight != null) ButtonRight.onClick.AddListener(CamCtrl.Right); else Debug.LogError("not found Right Button!");
-        if(ButtonReturn != null) ButtonReturn.onClick.AddListener(CamCtrl.BackRoom) ; else Debug.LogError("not found Left Button!");
+        if(ButtonReturn != null) ButtonReturn.onClick.AddListener(CamCtrl.BackRoom) ; else Debug.LogError("not found Return Button!");
         if(ButtonHomeReturn != null) ButtonHomeReturn.onClick.AddListener(BackToMainManu) ; else Debug.LogError("not found Home Button!");
+
 
         ActiveLeftRightButton();
         FinishGamePanel.GetComponent<CanvasGroup>().alpha = 0;
@@ -82,7 +83,8 @@ public class UIController : MonoBehaviour
             }
         }
     }
-        public void BackToMainManu()
+        //Home return button
+    public void BackToMainManu()
     {
         Debug.Log("Home");
         SceneManager.LoadScene("MainMenu");

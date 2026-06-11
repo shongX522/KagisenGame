@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private Camera Camera;
+    public Camera Camera;
     [SerializeField] public GameObject AnimatManager,PasswordPanel_drawer, PasswordPanel_OnDesk, Key;
     [SerializeField] public float RightLimit, MoveChuck, Start_CameraSize;
     [SerializeField] public Vector3 Start_Position, Start_Rotation;
@@ -13,11 +13,7 @@ public class GameManager : MonoBehaviour
     public bool IsZoomIn, HavingKey,IsPasswordLocking_drawer,IsPasswordLocking_table;
     public bool Dummy = false;
 
-    void Awake()
-    {
-        Camera = Object.FindFirstObjectByType<Camera>();
-        Key.SetActive(false);
-    }
+
     void Update()
     {
         var CallUICtrl = GetComponent<UIController>();
@@ -31,7 +27,7 @@ public class GameManager : MonoBehaviour
             ShootRay();
         if (Dummy)
         {
-            this.GetComponent<UIController>().ActiveText("Somthing Oped");
+            StartCoroutine(ShowTheText("なんか開きました！"));
             if(!IsPasswordLocking_drawer) 
             {
                 this.GetComponent<CameraController>().ZoomIn("Cabinet");
@@ -63,7 +59,7 @@ public class GameManager : MonoBehaviour
                     if(!IsZoomIn) CamCtrl.ZoomIn("DoorLock");
                     if(HavingKey && IsZoomIn)
                     {
-                        Debug.Log("Open door");
+                        
                         this.GetComponent<UIController>().FadeIn = true;
                     }
                     else 
@@ -119,5 +115,10 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Key.SetActive(true);
+    }
+    private IEnumerator ShowTheText(string Text)
+    {
+        this.GetComponent<UIController>().ActiveText(Text);
+        yield return new WaitForSeconds(1.5f);
     }
 }
