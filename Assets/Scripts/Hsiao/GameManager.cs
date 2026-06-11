@@ -6,26 +6,44 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public Camera Camera;
-    [SerializeField] public GameObject AnimatManager,PasswordPanel_drawer, PasswordPanel_OnDesk, Key;
-    [SerializeField] public float RightLimit, MoveChuck, Start_CameraSize;
-    [SerializeField] public Vector3 Start_Position, Start_Rotation;
+
+    [Header("Managers")]
+    [SerializeField] public GameObject AnimateManager;
+
+    [Header("PasswordPanel")]
+    [SerializeField] public GameObject password_drawer;
+    [SerializeField] public GameObject password_OnDesk;
+
+    [Header("Key")]
+    [SerializeField] public GameObject Key;
+
+    [Header("Position Setting")]
+    [SerializeField] public float RightLimit;
+    [SerializeField] public float MoveChuck;
+    [SerializeField] public float Start_CameraSize;
+    [SerializeField] public Vector3 Start_Position;
+    [SerializeField] public Vector3 Start_Rotation;
     
-    public bool IsZoomIn, HavingKey,IsPasswordLocking_drawer,IsPasswordLocking_table;
-    public bool Dummy = false;
+    [Header("Booleans")]
+    public bool IsZoomIn;
+    public bool HavingKey;
+    public bool IsPasswordLocking_drawer;
+    public bool IsPasswordLocking_table;
+    public bool ShowTheMessageOfDrawerOpen;
 
 
     void Update()
     {
         var CallUICtrl = GetComponent<UIController>();
-        var animator = AnimatManager.GetComponent<Animat>();
+        var animator = AnimateManager.GetComponent<Animate>();
         if(IsZoomIn)
-            CallUICtrl.IgnorLeftRightButton();
+            CallUICtrl.IgnoreLeftRightButton();
         else
             CallUICtrl.ActiveLeftRightButton();
 
         if (Input.GetMouseButtonDown(0))
             ShootRay();
-        if (Dummy)
+        if (ShowTheMessageOfDrawerOpen)
         {
             StartCoroutine(ShowTheText("なんか開きました！"));
             if(!IsPasswordLocking_drawer) 
@@ -35,7 +53,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(ShowTheKey());
             }
             if(!IsPasswordLocking_table) animator.OpenTheDoorOfDrawer();
-            Dummy = false;
+            ShowTheMessageOfDrawerOpen = false;
         }
     }
     void ShootRay()
@@ -59,11 +77,11 @@ public class GameManager : MonoBehaviour
                     if(!IsZoomIn) CamCtrl.ZoomIn("DoorLock");
                     if(HavingKey && IsZoomIn)
                     {
-                        
+                        StartCoroutine(ShowTheText("ドアーが開きました！"));
                         this.GetComponent<UIController>().FadeIn = true;
                     }
                     else 
-                        Debug.Log("Lock");
+                        StartCoroutine(ShowTheText("錠をかけている"));
                 }
                 if (CamCtrl.checkRoomPos(0))
                 {
@@ -90,7 +108,7 @@ public class GameManager : MonoBehaviour
                 CamCtrl.ZoomIn("PasswordPanel");
                 if (IsPasswordLocking_drawer)
                 {
-                    PasswordPanel_drawer.GetComponent<Password_in_drawer>().changeTheBool(raycastHit.transform.name);
+                    password_drawer.GetComponent<Password_in_drawer>().changeTheBool(raycastHit.transform.name);
                 }
                 
             }
@@ -98,11 +116,11 @@ public class GameManager : MonoBehaviour
             {
                 CamCtrl.ZoomIn("PasswordPanelTable");
                 if(IsPasswordLocking_table)
-                    PasswordPanel_OnDesk.GetComponent<Password_on_table>().changeTheBool(raycastHit.transform.name);
+                    password_OnDesk.GetComponent<Password_on_table>().changeTheBool(raycastHit.transform.name);
             }
             if(FoundTag == "Picture")
             {
-                AnimatManager.GetComponent<Animat>().DropThePicture();
+                AnimateManager.GetComponent<Animate>().DropThePicture();
             }
         }
         else

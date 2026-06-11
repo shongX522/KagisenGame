@@ -16,12 +16,12 @@ public class Password_in_drawer : MonoBehaviour
     void Update()
     {
         
-        if (GameManager.GetComponent<GameManager>().IsPasswordLocking_drawer) //link the gamemanager
+        if (GameManager.GetComponent<GameManager>().IsPasswordLocking_drawer)
         {
             if(IsPasswordCorrect()) 
             {
-                GameManager.GetComponent<GameManager>().IsPasswordLocking_drawer = false; //link the gamemanager
-                GameManager.GetComponent<GameManager>().Dummy = true; 
+                GameManager.GetComponent<GameManager>().IsPasswordLocking_drawer = false;
+                GameManager.GetComponent<GameManager>().ShowTheMessageOfDrawerOpen = true; 
             }
         }
         setTheColor();

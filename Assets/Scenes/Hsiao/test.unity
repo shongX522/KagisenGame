@@ -6576,9 +6576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1584486918}
-  AnimatManager: {fileID: 227807444}
-  PasswordPanel_drawer: {fileID: 8803227792431725410}
-  PasswordPanel_OnDesk: {fileID: 4306348127958917933}
+  AnimateManager: {fileID: 227807444}
+  password_drawer: {fileID: 8803227792431725410}
+  password_OnDesk: {fileID: 4306348127958917933}
   Key: {fileID: 5695488258802664201}
   RightLimit: 24
   MoveChuck: 8
@@ -6589,7 +6589,7 @@ MonoBehaviour:
   HavingKey: 0
   IsPasswordLocking_drawer: 1
   IsPasswordLocking_table: 1
-  Dummy: 0
+  ShowTheMessageOfDrawerOpen: 0
 --- !u!114 &1816013983
 MonoBehaviour:
   m_ObjectHideFlags: 0

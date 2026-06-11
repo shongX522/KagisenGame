@@ -13,12 +13,12 @@ public class Password_on_table : MonoBehaviour
     void Update()
     {
         
-        if (GameManager.GetComponent<GameManager>().IsPasswordLocking_table) //link the gamemanager
+        if (GameManager.GetComponent<GameManager>().IsPasswordLocking_table)
         {
             if(IsPasswordCorrect()) 
             {
-                GameManager.GetComponent<GameManager>().IsPasswordLocking_table = false; //link the gamemanager
-                GameManager.GetComponent<GameManager>().Dummy = true; 
+                GameManager.GetComponent<GameManager>().IsPasswordLocking_table = false; 
+                GameManager.GetComponent<GameManager>().ShowTheMessageOfDrawerOpen = true; 
             }
         }
         setTheColor();

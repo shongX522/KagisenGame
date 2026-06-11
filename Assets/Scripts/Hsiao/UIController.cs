@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
         if(ButtonLeft != null) ButtonLeft.onClick.AddListener(CamCtrl.Left); else Debug.LogError("not found Left Button!");
         if(ButtonRight != null) ButtonRight.onClick.AddListener(CamCtrl.Right); else Debug.LogError("not found Right Button!");
         if(ButtonReturn != null) ButtonReturn.onClick.AddListener(CamCtrl.BackRoom) ; else Debug.LogError("not found Return Button!");
-        if(ButtonHomeReturn != null) ButtonHomeReturn.onClick.AddListener(BackToMainManu) ; else Debug.LogError("not found Home Button!");
+        if(ButtonHomeReturn != null) ButtonHomeReturn.onClick.AddListener(BackToMainMenu) ; else Debug.LogError("not found Home Button!");
 
 
         ActiveLeftRightButton();
@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
         FinishGamePanel.SetActive(false);
     }
 
-    public void IgnorLeftRightButton()
+    public void IgnoreLeftRightButton()
     {
         ButtonLeft.gameObject.SetActive(false);
         ButtonRight.gameObject.SetActive(false);
@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
         }
     }
         //Home return button
-    public void BackToMainManu()
+    public void BackToMainMenu()
     {
         Debug.Log("Home");
         SceneManager.LoadScene("MainMenu");

@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Animat : MonoBehaviour
+public class Animate : MonoBehaviour
 {
     [SerializeField] GameObject Picture, Drawer;
 
